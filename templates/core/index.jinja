@@ -1,0 +1,71 @@
+{% extends "include/base.jinja" %}
+
+{% block title %}Buy Coffee! Online!{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+    {% for item in items %}
+      <div class="col-md-4"> 
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <img src="{{item.icon_url}}" alt="{{item.name}}"/>
+            <h3 class="panel-title">{{item.name}}</h3>
+          </div>
+          <div class="panel-body">
+            <p>{{item.description}}</p>
+            <button type="button" class="purchase_button btn btn-lg btn-success" price="{{item.price}}" item_name="{{item.name}}" item_id="{{item.id}}">{{item.price}}</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+{% block javascript %}
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
+  <script>
+    
+    var purchased_item_id = null;
+
+    var handler = StripeCheckout.configure({
+      key: 'pk_test_oFUfikhMAgGNmXaKWU7MjRYl',
+      image: '/static/icons/chemex_coffee-128.png',
+      name: 'cokitchen test',
+      token: function(token) {
+        var url = '/purchase/' + purchased_item_id;
+        $.ajax({
+          type: 'POST',
+          url: url,
+          data: token,
+          success: function(data) {
+          },
+          error: function(data) {
+          }
+        })
+      }
+    });
+
+    $('.purchase_button').on('click', function(e) {
+
+      purchased_item_id = $(this).attr('item_id');
+
+      // Open Checkout with further options
+      handler.open({
+        description: $(this).attr('item_name'),
+        amount: $(this).attr('price') * 100,
+        closed: function() { purchased_item_id = null; }
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  </script>
+
+{% endblock %}

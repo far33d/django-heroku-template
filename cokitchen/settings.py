@@ -22,9 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'eyam@gg_$9k1^^!=%47jgo+^8in@3bwd7%io(y=185jtwl1ukx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = True
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'templates/errors'),
+)
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +44,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jinja',
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,3 +115,6 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+# django-jinja setup
+
+DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'

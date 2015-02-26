@@ -1,1 +1,1 @@
-web: gunicorn cokitchen.wsgi --log-file -
+web: gunicorn cokitchen.wsgi --log-file - --access-logfile -
