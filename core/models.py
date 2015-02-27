@@ -12,8 +12,15 @@ class TestItem(models.Model):
     def __unicode__(self):
         return 'TestItem: %s, $%d' % (self.name, self.price)
 
+    def price_cents(self):
+        return int(self.price * 100)
+
 class PurchaseRecord(models.Model):
     item = models.ForeignKey(TestItem)
     purchase_time = models.DateTimeField(auto_now_add=True)
+    customer_email = models.EmailField(max_length=254)
+    stripe_token = models.CharField(max_length=32)
 
+    def __unicode__(self):
+        return 'customer: %s purchase: %s' % (self.customer_email, self.item.name)
 

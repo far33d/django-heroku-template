@@ -1,4 +1,5 @@
 import cokitchen.settings as settings
+import stripe
 
 STRIPE_TEST_SECRET_KEY = 'sk_test_5KgaXkwO9swdZInrWVDsZX33'
 STRIPE_TEST_PUBLISHABLE_KEY = 'pk_test_oFUfikhMAgGNmXaKWU7MjRYl'
@@ -14,4 +15,5 @@ else:
     STRIPE_SECRET_KEY = STRIPE_LIVE_SECRET_KEY
     STRIPE_PUBLISHABLE_KEY = STRIPE_LIVE_PUBLISHABLE_KEY
 
+stripe.api_key = STRIPE_SECRET_KEY
 
