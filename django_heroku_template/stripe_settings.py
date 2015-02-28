@@ -1,4 +1,4 @@
-import cokitchen.settings as settings
+import django_heroku_template.settings as settings
 import stripe
 
 STRIPE_TEST_SECRET_KEY = 'sk_test_5KgaXkwO9swdZInrWVDsZX33'

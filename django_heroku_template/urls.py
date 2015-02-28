@@ -3,11 +3,9 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'cokitchen.views.home', name='home'),
+    # url(r'^$', 'django_heroku_template.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', 'core.views.index', name='index'),
-    url(r'^purchase/(?P<item_id>\w+)$', 'core.views.purchase', name='purchase'),
     url(r'^admin/', include(admin.site.urls)),
 )
 

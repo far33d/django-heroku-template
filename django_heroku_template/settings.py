@@ -1,5 +1,5 @@
 """
-Django settings for cokitchen project.
+Django settings for django_heroku_template project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -58,9 +58,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'cokitchen.urls'
+ROOT_URLCONF = 'django_heroku_template.urls'
 
-WSGI_APPLICATION = 'cokitchen.wsgi.application'
+WSGI_APPLICATION = 'django_heroku_template.wsgi.application'
 
 
 # Database
