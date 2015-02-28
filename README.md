@@ -34,5 +34,12 @@ where to look for the local database. Contents of .env file should be:
 DATABASE_URL=postgres://localhost/DATABASE_NAME
 ```
 
+Make a new git repo (if you are me, since you can't fork your own stuff) and fix
+the remote reference: 
+
+```
+git remote set-url origin git@github.com:far33d/PROJECTNAME.git
+```
+
 Someday I'll make a script to actually do all this. 
 
