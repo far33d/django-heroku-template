@@ -3,10 +3,19 @@ django-heroku-template
 
 A starting point for django environments on heroku. In order to get started do 3 things: 
 
-Clone/Fork the repo and rename to PROJECTNAME.
+Fork this repo and to a new repo called PROJECTNAME.
+
+If you are me (the owner of this repo) you can't fork in github, so: 
+
+* create a new repo 
+* clone it locally
+
+Then add this project as an upstream source and fetch / merge:
 
 ```sh
-git clone django_heroku_template PROJECTNAME
+git remote add upstream https://github.com/far33d/django-heroku-template.git
+git fetch upstream
+git merge upstream/master
 ```
 
 move the django\_heroku\_template directory to PROJECTNAME
@@ -34,12 +43,9 @@ where to look for the local database. Contents of .env file should be:
 DATABASE_URL=postgres://localhost/DATABASE_NAME
 ```
 
-Make a new git repo (if you are me, since you can't fork your own stuff) and fix
-the remote reference: 
+Here's some info on forking your own stuff.... 
 
-```
-git remote set-url origin git@github.com:far33d/PROJECTNAME.git
-```
+http://bitdrift.com/post/4534738938/fork-your-own-project-on-github
 
 Someday I'll make a script to actually do all this. 
 
