@@ -12,11 +12,27 @@ git clone django_heroku_template PROJECTNAME
 move the django\_heroku\_template directory to PROJECTNAME
 
 ```sh
+cd PROJECTNAME
 git mv django_heroku_template PROJECTNAME
 ```
 
 Find and replace any instance of django_heroku_template to PROJECTNAME in all files. 
 As of now, the only files affected are:
-```sh
+
 ```
+./PROJECTNAME/settings.py
+./PROJECTNAME/urls.py
+./PROJECTNAME/wsgi.py
+./manage.py
+./Procfile
+```
+
+Create a database in postgres, and add a .env file in root directory to tell foreman
+where to look for the local database. Contents of .env file should be:
+
+```
+DATABASE_URL=postgres://localhost/DATABASE_NAME
+```
+
+Someday I'll make a script to actually do all this. 
 
