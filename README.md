@@ -47,7 +47,7 @@ Set up a virtualenv, activate it, and install all dependencies.
 ```sh
 virtualenv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt --allow-all-external
 ```
 
 Here's some info on forking your own stuff.... 
