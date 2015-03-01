@@ -43,9 +43,17 @@ where to look for the local database. Contents of .env file should be:
 DATABASE_URL=postgres://localhost/DATABASE_NAME
 ```
 
+Set up a virtualenv, activate it, and install all dependencies. 
+```sh
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
 Here's some info on forking your own stuff.... 
 
 http://bitdrift.com/post/4534738938/fork-your-own-project-on-github
 
 Someday I'll make a script to actually do all this. 
+
 
